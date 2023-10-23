@@ -8,16 +8,18 @@ function Layout() {
   const [decks, setDecks] = useState([]);
   const [cards, setCards] = useState([]);
 
+
+
   return (
     <>
       <Header />
       <div className="container">
         <Switch>
-          <NavHome />
+          {/* <NavHome /> */}
           <Route exact path="/">
             <DeckList />
           </Route>
-          <Route path="/decks/:deckId/study">
+          {/* <Route path="/decks/:deckId/study">
             <StudyCard />
           </Route>
           <Route exact path="/decks/:deckId">
@@ -31,14 +33,14 @@ function Layout() {
           </Route>
           <Route path="/decks/:deckId/cards/new">
             <AddCard />
-          </Route>
-          <Route path="/decks/:deckId/cards/:cardId/edit">
+          </Route> */}
+          {/* <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
           <Route component={NotFound} />
           <Route>
             <NotEnough />
-          </Route>
+          </Route> */}
         </Switch>
       </div> 
     </>
