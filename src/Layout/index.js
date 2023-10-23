@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
+import DeckList from "../home/DeckList"
 import NotFound from "./NotFound";
 
 function Layout() {
+  const [decks, setDecks] = useState();
+
   return (
     <>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
+        <Switch>
+          <Route>
+            <DeckList />
+          </Route>
+        </Switch>
         <NotFound />
       </div>
     </>
