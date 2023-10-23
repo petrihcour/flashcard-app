@@ -5,43 +5,42 @@ import DeckList from "../home/DeckList";
 import NotFound from "./NotFound";
 
 function Layout() {
-  const [decks, setDecks] = useState();
+  const [decks, setDecks] = useState([]);
+  const [cards, setCards] = useState([]);
 
   return (
     <>
       <Header />
       <div className="container">
         <Switch>
-          <Route>
+          <NavHome />
+          <Route exact path="/">
             <DeckList />
           </Route>
-          <Route>
+          <Route path="/decks/:deckId/study">
             <StudyCard />
           </Route>
-          <Route>
+          <Route exact path="/decks/:deckId">
             <DeckScreen />
           </Route>
-          <Route>
+          <Route exact path="/decks/new">
             <CreateDeck />
           </Route>
-          <Route>
+          <Route path="/decks/:deckId/edit">
             <EditDeck />
           </Route>
-          <Route>
+          <Route path="/decks/:deckId/cards/new">
             <AddCard />
           </Route>
-          <Route>
+          <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
-          <Route>
-            <NotFound />
-          </Route>
+          <Route component={NotFound} />
           <Route>
             <NotEnough />
           </Route>
         </Switch>
-        <NavHome />
-      </div>
+      </div> 
     </>
   );
 }
