@@ -1,3 +1,6 @@
+
+// Study Screen
+// path is `/decks/:deckId/study`
 // each deck consists of 
 // deck title, "Study: Rendering in React" 
 // cards shown one at a time, front-side first
