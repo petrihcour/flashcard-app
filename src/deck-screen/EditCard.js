@@ -1,0 +1,1 @@
+// path is `/decks/:deckId/cards/:cardId/edit`
