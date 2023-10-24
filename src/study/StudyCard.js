@@ -1,3 +1,4 @@
+import React from "react";
 
 // Study Screen
 // path is `/decks/:deckId/study`
@@ -11,3 +12,9 @@
 // once "flip" button clicked, "Next" button 
 // on last card, "Restart prompt"
 // if user does not restart, "click 'Cancel' to return to the Home page
+
+function StudyCard() {
+    return <h1>hi</h1>
+}
+
+export default StudyCard;

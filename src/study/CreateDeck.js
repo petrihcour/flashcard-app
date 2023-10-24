@@ -1,3 +1,6 @@
+import React from "react";
+
+
 // path to this screen is `/decks/new`
 // title is Create Deck
 // a form that consists of 
@@ -6,3 +9,9 @@
 // at bottom of form:
 // Cancel button takes user back to Home screen 
 // Submit button takes user to Deck screen 
+
+function CreateDeck() {
+    return <h1>Create Deck!</h1>
+}
+
+export default CreateDeck;
