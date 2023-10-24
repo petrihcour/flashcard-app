@@ -2,8 +2,9 @@ import React from "react";
 import { useHistory, useRouteMatch, Switch, Route } from "react-router-dom";
 import Deck from "./Deck";
 import CreateDeck from "../study/CreateDeck";
-import DeckScreen from "../deck-screen/DeckScreen";
-import StudyCard from "../study/StudyCard";
+// import CreateDeck from "../study/CreateDeck";
+// import DeckScreen from "../deck-screen/DeckScreen";
+// import StudyCard from "../study/StudyCard";
 
 // path is '/'
 // top of list of deck is a create deck button that brings user to Create Deck screen
@@ -38,16 +39,16 @@ function DeckList({ decks, deleteDeckById }) {
         <div>{rows}</div>
       </div>
       {/* <Switch>
-        <Route path="/decks/new">
-            <CreateDeck />
+        <Route exact path={`${url}/decks/new`}>
+          <CreateDeck />
         </Route>
-        <Route path="/decks/:deckId">
+        {/* <Route path="/decks/:deckId">
             <DeckScreen />
         </Route>
         <Route path={`/decks/:deckId/study`}>
             <StudyCard />
-        </Route>
-      </Switch> */}
+        </Route> */}
+      {/* </Switch> */} 
     </div>
   );
 }

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { listDecks } from "../utils/api";
 import Header from "./Header";
-import NavHome from "../home/NavHome";
 import DeckList from "../home/DeckList";
+import CreateDeck from "../study/CreateDeck";
 import NotFound from "./NotFound";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
 
   useEffect(() => {
     async function deckData() {
@@ -39,19 +39,18 @@ function Layout() {
           <Route exact path="/">
             <DeckList decks={decks} deleteDeckById={deleteDeckById} />
           </Route>
-          <Route>
-            <NavHome deck={decks} />
+          
 
             {/* <Route path="/decks/:deckId/study">
             <StudyCard />
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckScreen />
-          </Route>
+          </Route> */}
           <Route exact path="/decks/new">
             <CreateDeck />
           </Route>
-          <Route path="/decks/:deckId/edit">
+          {/* <Route path="/decks/:deckId/edit">
             <EditDeck />
           </Route>
           <Route path="/decks/:deckId/cards/new">
@@ -64,7 +63,7 @@ function Layout() {
           <Route>
             <NotEnough />
           </Route> */}
-          </Route>
+          
         </Switch>
       </div>
     </>
