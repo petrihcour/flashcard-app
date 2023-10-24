@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { listDecks } from "../utils/api"
 import Header from "./Header";
+import NavHome from "../home/NavHome";
 import DeckList from "../home/DeckList";
 import NotFound from "./NotFound";
 
@@ -8,6 +10,14 @@ function Layout() {
   const [decks, setDecks] = useState([]);
   const [cards, setCards] = useState([]);
 
+  useEffect(() => {
+    async function deckData() {
+      const abortController = new AbortController();
+      const decksAPI = await listDecks(abortController.signal);
+      setDecks(decksAPI);
+    }
+    deckData();
+  }, [])
 
 
   return (
@@ -17,7 +27,7 @@ function Layout() {
         <Switch>
           {/* <NavHome /> */}
           <Route exact path="/">
-            <DeckList />
+            <DeckList decks={decks} cards={cards} />
           </Route>
           {/* <Route path="/decks/:deckId/study">
             <StudyCard />

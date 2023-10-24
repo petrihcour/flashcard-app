@@ -10,15 +10,19 @@ import React from "react";
 // clicking Delete button shows warning message before deleting deck
 // // // delete handler needed
 
-function Deck() {
+function Deck({ deck, cards }) {
+    const totalCardsInDeck = cards.length;
+    console.log("Deck ID:", deck.id);
+    console.log("Total Cards", totalCardsInDeck);
+    
   return (
       <div className="card w-75 mb-3 mx-auto">
         <div className="card-body">
           <div className="deck d-flex justify-content-between">
-            <h5 className="card-title">Decks name</h5>
-            <p className="card-text">Cards length</p>
+            <h5 className="card-title">{deck.name}</h5>
+            <p className="card-text">{totalCardsInDeck}</p>
           </div>
-          <p className="card-text">Decks description Decks description Decks description Decks description Decks description Decks description Decks description Decks description</p>
+          <p className="card-text">{deck.description}</p>
 
           <div className="d-flex justify-content-between">
             <div>

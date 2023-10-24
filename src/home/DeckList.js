@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import Deck from "./Deck";
+
 
 // path is '/'
 // top of list of deck is a create deck button that brings user to Create Deck screen
 // map through list of decks
 
-function DeckList() {
+function DeckList({ decks }) {
     // DELETE THIS WHEN I START WITH FUNCTIONALITY vvvv
-    const mockDecks = [
-        { id: 1, name: "Deck 1", cards: [] },
-        { id: 2, name: "Deck 2", cards: [] },
-        { id: 3, name: "Deck 3", cards: [] },
-      ];
-      const decks = mockDecks;
+    // const mockDecks = [
+    //     { id: 1, name: "Deck 1", cards: [] },
+    //     { id: 2, name: "Deck 2", cards: [] },
+    //     { id: 3, name: "Deck 3", cards: [] },
+    //   ];
+    //   const decks = mockDecks;
 
-      
-  const rows = decks.map((deck) => <Deck key={deck.id} deck={deck} />);
+
+  const rows = decks.map((deck) => <Deck key={deck.id} deck={deck} cards={deck.cards} />);
 
   return (
     <div className="container">
