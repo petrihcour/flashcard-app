@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import Deck from "./Deck";
 
 
@@ -8,13 +7,6 @@ import Deck from "./Deck";
 // map through list of decks
 
 function DeckList({ decks }) {
-    // DELETE THIS WHEN I START WITH FUNCTIONALITY vvvv
-    // const mockDecks = [
-    //     { id: 1, name: "Deck 1", cards: [] },
-    //     { id: 2, name: "Deck 2", cards: [] },
-    //     { id: 3, name: "Deck 3", cards: [] },
-    //   ];
-    //   const decks = mockDecks;
 
 
   const rows = decks.map((deck) => <Deck key={deck.id} deck={deck} cards={deck.cards} />);

@@ -20,7 +20,7 @@ function Deck({ deck, cards }) {
         <div className="card-body">
           <div className="deck d-flex justify-content-between">
             <h5 className="card-title">{deck.name}</h5>
-            <p className="card-text">{totalCardsInDeck}</p>
+            <p className="card-text">{totalCardsInDeck} cards</p>
           </div>
           <p className="card-text">{deck.description}</p>
 
