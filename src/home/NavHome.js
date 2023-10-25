@@ -6,7 +6,7 @@ import { useLocation, Link } from "react-router-dom";
 // nav on top includes title name of each necessary component
 
 function NavHome({ deck, heading }) {
-  const location = useLocation();
+//   const location = useLocation();
 
     return (
       <nav aria-label="breadcrumb">

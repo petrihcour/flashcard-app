@@ -47,7 +47,7 @@ function Deck({ deck, cards, deleteDeckById }) {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => history.push(`/decks/${deck.id}/study`)}
+            //   onClick={() => history.push(`/decks/${deck.id}/study`)}
             >
               <i className="bi bi-eyeglasses"></i> Study
             </button>

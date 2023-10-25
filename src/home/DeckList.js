@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useRouteMatch, Switch, Route } from "react-router-dom";
 import Deck from "./Deck";
-import CreateDeck from "../study/CreateDeck";
+// import CreateDeck from "../study/CreateDeck";
 // import CreateDeck from "../study/CreateDeck";
 // import DeckScreen from "../deck-screen/DeckScreen";
 // import StudyCard from "../study/StudyCard";
@@ -11,7 +11,7 @@ import CreateDeck from "../study/CreateDeck";
 // map through list of decks
 
 function DeckList({ decks, deleteDeckById }) {
-  const history = useHistory();
+//   const history = useHistory();
   const { url } = useRouteMatch();
   console.log({ url });
 
@@ -31,7 +31,7 @@ function DeckList({ decks, deleteDeckById }) {
           <button
             type="button"
             className="btn btn-secondary mx-auto"
-            onClick={() => history.push("/decks/new")}
+            // onClick={() => history.push("/decks/new")}
           >
             <i className="bi bi-plus"></i> Create Deck
           </button>

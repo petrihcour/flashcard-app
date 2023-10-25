@@ -1,23 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useParams } from "react-router-dom";
 import { listDecks } from "../utils/api";
+import { readDeck } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
-import NotFound from "./NotFound";
+import DeckScreen from "../deck-screen/DeckScreen";
+// import NotFound from "./NotFound";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
+  const [deck, setDeck] = useState();
   // const [cards, setCards] = useState([]);
 
+  const { deckId } = useParams();
+
+  // access list of Decks
   useEffect(() => {
+    const abortController = new AbortController();
     async function deckData() {
-      const abortController = new AbortController();
       const decksAPI = await listDecks(abortController.signal);
       setDecks(decksAPI);
     }
+
+    async function loadDeckData() {
+      if (deckId) {
+          const deckAPI = await readDeck(deckId, abortController.signal)
+          setDeck(deckAPI);
+        } 
+      
+    }
     deckData();
-  }, []);
+    loadDeckData();
+  }, [deckId]);
+
 
   const deleteDeckById = (deckId) => {
     const result = window.confirm(
@@ -39,14 +55,13 @@ function Layout() {
           <Route exact path="/">
             <DeckList decks={decks} deleteDeckById={deleteDeckById} />
           </Route>
-          
 
-            {/* <Route path="/decks/:deckId/study">
+          {/* <Route path="/decks/:deckId/study">
             <StudyCard />
-          </Route>
-          <Route exact path="/decks/:deckId">
-            <DeckScreen />
           </Route> */}
+          <Route path="/decks/:deckId">
+            <DeckScreen decks={decks} deleteDeckById={deleteDeckById} />
+          </Route>
           <Route exact path="/decks/new">
             <CreateDeck />
           </Route>
@@ -56,14 +71,13 @@ function Layout() {
           <Route path="/decks/:deckId/cards/new">
             <AddCard />
           </Route> */}
-            {/* <Route path="/decks/:deckId/cards/:cardId/edit">
+          {/* <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
           <Route component={NotFound} />
           <Route>
             <NotEnough />
           </Route> */}
-          
         </Switch>
       </div>
     </>
