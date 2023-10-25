@@ -22,8 +22,8 @@ function Card({ card, deck }) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
-            <p className="mr-5">{card.front}</p>
-            <p className="ml-4">{card.back}</p>
+            <p className="w-50 mr-3">{card.front}</p>
+            <p className="w-50 text-right">{card.back}</p>
             </div>
             <div className="d-flex justify-content-end">
               <button
