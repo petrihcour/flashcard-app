@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link, useRouteMatch } from "react-router-dom";
 import CardList from "./CardList";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
@@ -17,10 +17,12 @@ import NotFound from "../Layout/NotFound";
 // delete button (shows warning message before deleting)
 // will take in cardlist.js
 
-function DeckScreen({ decks, deleteDeckById }) {
+function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
   const history = useHistory();
+  const { url } = useRouteMatch();
   const { deckId } = useParams();
   console.log({ deckId });
+  console.log("DeckScreen:", { url });
 
   const deck = decks.find((deck) => deck.id === Number(deckId));
 
@@ -42,27 +44,18 @@ function DeckScreen({ decks, deleteDeckById }) {
       <p>{deck.description}</p>
       <div className="deck d-flex justify-content-between">
         <div>
-          <button
-            type="button"
-            className="btn btn-secondary mr-2"
-            //   onClick={() => history.push(`/decks/${deck.id}`)}
-          >
+          <Link to={`${url}/edit`} className="btn btn-secondary mr-2">
             <i className="bi bi-pen"></i> Edit
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary mr-2"
-            //   onClick={() => history.push(`/decks/${deck.id}/study`)}
-          >
+          </Link>
+
+          <Link to={`${url}/study`} className="btn btn-primary mr-2">
             <i className="bi bi-eyeglasses"></i> Study
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            // onClick={() => history.push("/decks/new")}
-          >
-            <i className="bi bi-plus"></i> Add Cards
-          </button>
+          </Link>
+
+          <Link to={`${url}/cards/new`} className="btn btn-secondary">
+          <i className="bi bi-plus"></i> Add Cards
+          </Link>
+          
         </div>
         <div className="d-flex justify-content-end">
           <button
@@ -75,7 +68,11 @@ function DeckScreen({ decks, deleteDeckById }) {
         </div>
       </div>
 
-      <CardList cards={deck.cards} deck={deck} />
+      <CardList
+        cards={deck.cards}
+        deck={deck}
+        deleteCardById={deleteCardById}
+      />
     </div>
   );
 }

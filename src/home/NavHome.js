@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // navigation at top of all screens not on home page / error messages
 // links to Home `/`

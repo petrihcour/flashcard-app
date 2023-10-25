@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useRouteMatch, Switch, Route } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 import Deck from "./Deck";
 // import CreateDeck from "../study/CreateDeck";
 // import CreateDeck from "../study/CreateDeck";
@@ -28,27 +28,13 @@ function DeckList({ decks, deleteDeckById }) {
     <div className="container">
       <div className="row">
         <div className="mx-auto mb-2">
-          <button
-            type="button"
-            className="btn btn-secondary mx-auto"
-            // onClick={() => history.push("/decks/new")}
-          >
-            <i className="bi bi-plus"></i> Create Deck
-          </button>
+          <Link to="/decks/new" className="btn btn-secondary mx-auto">
+          <i className="bi bi-plus"></i> Create Deck
+          </Link>
         </div>
         <div>{rows}</div>
       </div>
-      {/* <Switch>
-        <Route exact path={`${url}/decks/new`}>
-          <CreateDeck />
-        </Route>
-        {/* <Route path="/decks/:deckId">
-            <DeckScreen />
-        </Route>
-        <Route path={`/decks/:deckId/study`}>
-            <StudyCard />
-        </Route> */}
-      {/* </Switch> */} 
+      
     </div>
   );
 }

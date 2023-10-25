@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 
 // create a deck
@@ -37,20 +37,15 @@ function Deck({ deck, cards, deleteDeckById }) {
 
         <div className="d-flex justify-content-between">
           <div>
-            <button
-              type="button"
-              className="btn btn-secondary mr-2"
-              onClick={() => history.push(`/decks/${deck.id}`)}
-            >
-              <i className="bi bi-eye"></i> View
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary"
-            //   onClick={() => history.push(`/decks/${deck.id}/study`)}
-            >
-              <i className="bi bi-eyeglasses"></i> Study
-            </button>
+            <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
+            <i className="bi bi-eye"></i> View
+            </Link>
+            
+            <Link to={`/decks/${deck.id}/study`}
+            className="btn btn-primary">
+            <i className="bi bi-eyeglasses"></i> Study
+            </Link>
+            
           </div>
           <div className="d-flex justify-content-end">
             <button

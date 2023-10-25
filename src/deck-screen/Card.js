@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 // NEED TO ADD FUNCTIONALITY TO:
 // EDIT BUTTON,
@@ -10,11 +10,15 @@ import { useParams } from "react-router-dom";
 // has edit button (goes to Edit Card screen)
 // delete button (with warning message. )
 
-function Card({ card, deck }) {
-  const { cardId } = useParams();
-  console.log({ cardId })
+function Card({ card, deleteCardById }) {
+  const { url } = useRouteMatch();
   console.log("Single card:", { card });
-  
+
+  const handleDelete = () => {
+    deleteCardById(card.id);
+  }
+
+  console.log("Card Id:", card.id);
 
   return (
     <div className="card mx-auto">
@@ -22,21 +26,19 @@ function Card({ card, deck }) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
-            <p className="w-50 mr-3">{card.front}</p>
-            <p className="w-50 text-right">{card.back}</p>
+              <p className="w-50 mr-3">{card.front}</p>
+              <p className="w-50 text-right">{card.back}</p>
             </div>
             <div className="d-flex justify-content-end">
-              <button
-                type="button"
-                className="btn btn-secondary mr-2"
-                //   onClick={() => history.push(`/decks/${deck.id}`)}
-              >
+                
+              <Link to={`{${url}/cards/${card.id}/edit`} className="btn btn-secondary mr-2">
                 <i className="bi bi-pen"></i> Edit
-              </button>
+              </Link>
+
               <button
                 type="delete"
                 className="btn btn-danger"
-                // onClick={handleDelete}
+                onClick={handleDelete}
               >
                 <i className="bi bi-trash"></i>
               </button>

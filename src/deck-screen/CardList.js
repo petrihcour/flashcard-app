@@ -4,13 +4,18 @@ import Card from "./Card";
 // title is "Cards"
 // map through the cards
 
-function CardList({ cards, deck }) {
+function CardList({ cards, deck, deleteCardById }) {
 
     if (!cards) {
         return <p>No cards available.</p>;
       }
   const rowOfCards = cards.map((card) => (
-    <Card key={card.id} deck={deck} card={card} />
+    <Card 
+    key={card.id} 
+    deck={deck} 
+    card={card}
+    deleteCardById={deleteCardById} 
+    />
   ));
 
   return (
