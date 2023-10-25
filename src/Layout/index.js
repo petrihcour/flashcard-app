@@ -74,7 +74,7 @@ function Layout() {
           </Route>
 
           <Route path="/decks/:deckId/study">
-            <StudyCard />
+            <StudyCard decks={decks} />
           </Route>
 
           <Route exact path="/decks/:deckId">

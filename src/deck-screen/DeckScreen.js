@@ -39,7 +39,7 @@ function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
 
   return (
     <div>
-      <NavHome heading={deck.name} />
+      <NavHome deck={deck.name} />
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div className="deck d-flex justify-content-between">
@@ -55,7 +55,7 @@ function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
           <Link to={`${url}/cards/new`} className="btn btn-secondary">
           <i className="bi bi-plus"></i> Add Cards
           </Link>
-          
+
         </div>
         <div className="d-flex justify-content-end">
           <button

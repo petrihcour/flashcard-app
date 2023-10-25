@@ -16,12 +16,19 @@ function NavHome({ deck, heading }) {
             <i className="bi bi-house-door-fill"></i> Home
             </Link>
           </li>
-          {deck && (<li className="breadcrumb-item">
-            {deck.name}
-          </li>)}
+
+          {deck && (
+          <li className="breadcrumb-item active">
+            {deck}
+          </li>
+        )}
+
+        {heading && (
           <li className="breadcrumb-item active" aria-current="page">
             {heading}
           </li>
+        )}
+        
         </ol>
       </nav>
     );

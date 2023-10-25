@@ -1,4 +1,7 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import NavHome from "../home/NavHome";
+import NotFound from "../Layout/NotFound";
 
 // Study Screen
 // path is `/decks/:deckId/study`
@@ -13,8 +16,23 @@ import React from "react";
 // on last card, "Restart prompt"
 // if user does not restart, "click 'Cancel' to return to the Home page
 
-function StudyCard() {
-    return <h1>hi</h1>
+function StudyCard({ decks }) {
+    const { deckId } = useParams();
+    console.log({deckId})
+
+    const deck = decks.find((deck) => deck.id === Number(deckId));
+
+    if (!deck) {
+        return <NotFound />;
+      }
+
+    return (
+        <div>
+            <NavHome deck={deck.name} heading="Study" />
+
+            <h1>Study: {deck.name}</h1>
+        </div>
+    )
 }
 
 export default StudyCard;
