@@ -11,7 +11,6 @@ import DeckScreen from "../deck-screen/DeckScreen";
 function Layout() {
   const [decks, setDecks] = useState([]);
   const [deck, setDeck] = useState();
-  // const [cards, setCards] = useState([]);
 
   const { deckId } = useParams();
 

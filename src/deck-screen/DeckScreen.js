@@ -1,7 +1,13 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
+import CardList from "./CardList";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
+
+// NEED TO ADD FUNCTIONALITY TO:
+// EDIT BUTTON,
+// STUDY BUTTON,
+// ADD CARDS BUTTON
 
 // path is `/decks/:deckId`
 // deck name at the top and deck description
@@ -68,6 +74,8 @@ function DeckScreen({ decks, deleteDeckById }) {
           </button>
         </div>
       </div>
+
+      <CardList cards={deck.cards} deck={deck} />
     </div>
   );
 }
