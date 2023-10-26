@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import { deleteCard } from "../utils/api";
 
 // NEED TO ADD FUNCTIONALITY TO:
 // EDIT BUTTON,
@@ -12,10 +13,15 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 function Card({ card, deleteCardById }) {
   const { url } = useRouteMatch();
-  console.log("Single card:", { card });
 
-  const handleDelete = () => {
-    deleteCardById(card.id);
+
+
+  const handleDelete = async () => {
+    const abortController = new AbortController();
+    await deleteCard(card.id, abortController.signal);
+    // console.log("Deleting card with ID:", card.id)
+    // deleteCardById(card.id);
+
   }
 
   console.log("Card Id:", card.id);

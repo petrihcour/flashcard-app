@@ -3,11 +3,11 @@ import { useParams, useHistory, Link, useRouteMatch } from "react-router-dom";
 import CardList from "./CardList";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
+import Deck from "../home/Deck";
 
-// NEED TO ADD FUNCTIONALITY TO:
-// EDIT BUTTON,
-// STUDY BUTTON,
-// ADD CARDS BUTTON
+// NEED TO MOVE READDECK API INTO THIS COMPONENT TO ACCESS THE INDIVUDUAL Deck
+// DO DECK AND SET DECK, PASS DOWN TO CARDLIST AND CARD TO DELETE CARD FROM DECK 
+// IT'S CURRENTLY IN LAYOUT/INDEX.JS
 
 // path is `/decks/:deckId`
 // deck name at the top and deck description

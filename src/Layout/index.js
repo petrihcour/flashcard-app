@@ -11,7 +11,7 @@ import DeckScreen from "../deck-screen/DeckScreen";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-  const [deck, setDeck] = useState({ cards: [] });
+  // const [deck, setDeck] = useState({ cards: [] });
 
   const { deckId } = useParams();
 
@@ -27,14 +27,14 @@ function Layout() {
       if (deckId) {
         try {
           const deckAPI = await readDeck(deckId, abortController.signal);
-          setDeck(deckAPI);
+          // setDeck(deckAPI);
         } catch (error) {
           console.error(error.message);
         }
       }
     }
     deckData();
-    loadDeckData();
+    // loadDeckData();
   }, [deckId]);
 
   const deleteDeckById = (deckId) => {
@@ -49,15 +49,23 @@ function Layout() {
     }
   };
 
-  const deleteCardById = (cardId) => {
-    const result = window.confirm(
-      `Do you want to delete this card? \n \nYou will not be able to recover it.`
-    );
-    if (result) {
-      setDeck((currentDeck) =>
-        currentDeck.filter((card) => card.id !== cardId)
-      );
+  const deleteCardById = (deckId, cardId) => {
+    console.log(typeof cardId);
+    // const result = window.confirm(
+    //   `Do you want to delete this card? \n \nYou will not be able to recover it.`
+    // );
+    if (true) {
+      const deck = decks.find(deck => deck.id === deckId);
+      const updatedCards = deck.cards.filter((card) => card.id !== cardId);
+      console.log(deck);
+      // setDeck(
+      //   {
+      //     ...deck,
+      //     cards: updatedCards
+      //   }
+      // )
     }
+
   };
 
   return (
