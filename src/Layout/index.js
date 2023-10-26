@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useParams } from "react-router-dom";
 import { listDecks } from "../utils/api";
-import { readDeck } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
@@ -11,7 +10,6 @@ import DeckScreen from "../deck-screen/DeckScreen";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-  // const [deck, setDeck] = useState({ cards: [] });
 
   const { deckId } = useParams();
 
@@ -23,18 +21,7 @@ function Layout() {
       setDecks(decksAPI);
     }
 
-    async function loadDeckData() {
-      if (deckId) {
-        try {
-          const deckAPI = await readDeck(deckId, abortController.signal);
-          // setDeck(deckAPI);
-        } catch (error) {
-          console.error(error.message);
-        }
-      }
-    }
     deckData();
-    // loadDeckData();
   }, [deckId]);
 
   const deleteDeckById = (deckId) => {
@@ -49,24 +36,6 @@ function Layout() {
     }
   };
 
-  const deleteCardById = (deckId, cardId) => {
-    console.log(typeof cardId);
-    // const result = window.confirm(
-    //   `Do you want to delete this card? \n \nYou will not be able to recover it.`
-    // );
-    if (true) {
-      const deck = decks.find(deck => deck.id === deckId);
-      const updatedCards = deck.cards.filter((card) => card.id !== cardId);
-      console.log(deck);
-      // setDeck(
-      //   {
-      //     ...deck,
-      //     cards: updatedCards
-      //   }
-      // )
-    }
-
-  };
 
   return (
     <>
@@ -89,7 +58,6 @@ function Layout() {
             <DeckScreen
               decks={decks}
               deleteDeckById={deleteDeckById}
-              deleteCardById={deleteCardById}
             />
           </Route>
 

@@ -4,7 +4,7 @@ import Card from "./Card";
 // title is "Cards"
 // map through the cards
 
-function CardList({ cards, deck, deleteCardById }) {
+function CardList({ cards, deck }) {
   if (!cards) {
     return <p>No cards available.</p>;
   }
@@ -13,7 +13,6 @@ function CardList({ cards, deck, deleteCardById }) {
       key={card.id}
       deck={deck}
       card={card}
-      deleteCardById={deleteCardById}
     />
   ));
 

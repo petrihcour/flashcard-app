@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useHistory, Link, useRouteMatch } from "react-router-dom";
+import { readDeck } from "../utils/api";
 import CardList from "./CardList";
 import NavHome from "../home/NavHome";
-import NotFound from "../Layout/NotFound";
-import Deck from "../home/Deck";
 
 // NEED TO MOVE READDECK API INTO THIS COMPONENT TO ACCESS THE INDIVUDUAL Deck
-// DO DECK AND SET DECK, PASS DOWN TO CARDLIST AND CARD TO DELETE CARD FROM DECK 
+// DO DECK AND SET DECK, PASS DOWN TO CARDLIST AND CARD TO DELETE CARD FROM DECK
 // IT'S CURRENTLY IN LAYOUT/INDEX.JS
 
 // path is `/decks/:deckId`
@@ -17,23 +16,27 @@ import Deck from "../home/Deck";
 // delete button (shows warning message before deleting)
 // will take in cardlist.js
 
-function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
+function DeckScreen({ deleteDeckById }) {
+  const [deck, setDeck] = useState({});
   const history = useHistory();
   const { url } = useRouteMatch();
   const { deckId } = useParams();
-  console.log({ deckId });
-  console.log("DeckScreen:", { url });
 
-  const deck = decks.find((deck) => deck.id === Number(deckId));
+  useEffect(() => {
+    async function loadDeckData() {
+        const abortController = new AbortController();
+        const deckAPI = await readDeck(deckId, abortController.signal);
+        setDeck(deckAPI);
+    }
+    loadDeckData();
+  }, [deckId])
 
-  if (!deck) {
-    return <NotFound />;
-  }
 
   const handleDelete = () => {
     deleteDeckById(deck.id);
-    history.push("/");
+    history.push(`/decks/${deckId}`);
   };
+
 
   console.log("current deck", deck);
 
@@ -53,9 +56,8 @@ function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
           </Link>
 
           <Link to={`${url}/cards/new`} className="btn btn-secondary">
-          <i className="bi bi-plus"></i> Add Cards
+            <i className="bi bi-plus"></i> Add Cards
           </Link>
-
         </div>
         <div className="d-flex justify-content-end">
           <button
@@ -71,7 +73,6 @@ function DeckScreen({ decks, deleteDeckById, deleteCardById }) {
       <CardList
         cards={deck.cards}
         deck={deck}
-        deleteCardById={deleteCardById}
       />
     </div>
   );
