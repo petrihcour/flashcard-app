@@ -13,6 +13,8 @@ import { useHistory, Link } from "react-router-dom";
 // // // delete handler needed
 
 function Deck({ deck, cards, deleteDeckById }) {
+
+    
   const history = useHistory();
 
   const totalCardsInDeck = cards.length;
@@ -45,7 +47,7 @@ function Deck({ deck, cards, deleteDeckById }) {
             className="btn btn-primary">
             <i className="bi bi-eyeglasses"></i> Study
             </Link>
-            
+
           </div>
           <div className="d-flex justify-content-end">
             <button

@@ -64,7 +64,7 @@ function CreateDeck() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => history.push(`/decks/:deckId`)}
+            //   onClick={() => history.push(`/decks/:deckId`)}
             >
             Submit
             </button>

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useParams } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { listDecks } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
 import StudyCard from "../study/StudyCard";
 import DeckScreen from "../deck-screen/DeckScreen";
+import EditDeck from "../deck-screen/EditDeck";
 // import NotFound from "./NotFound";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-
-  const { deckId } = useParams();
 
   // access list of Decks
   useEffect(() => {
@@ -22,7 +21,7 @@ function Layout() {
     }
 
     deckData();
-  }, [deckId]);
+  }, []);
 
   const deleteDeckById = (deckId) => {
     const result = window.confirm(
@@ -56,24 +55,17 @@ function Layout() {
 
           <Route exact path="/decks/:deckId">
             <DeckScreen
-              decks={decks}
               deleteDeckById={deleteDeckById}
             />
           </Route>
-
-          {/* <Route path="/decks/:deckId/edit">
-            <EditDeck />
-          </Route>
-          <Route path="/decks/:deckId/cards/new">
+          {/* <Route path="/decks/:deckId/cards/new">
             <AddCard />
-          </Route>
+          </Route> */}
           {/* <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
           <Route component={NotFound} />
-          <Route>
-            <NotEnough />
-          </Route> */}
+           */}
         </Switch>
       </div>
     </>

@@ -2,9 +2,7 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
-// NEED TO ADD FUNCTIONALITY TO:
-// EDIT BUTTON,
-// DELETE BUTTON
+// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED 
 
 // each individual card
 // shows a question and answer to the question
@@ -12,6 +10,7 @@ import { deleteCard } from "../utils/api";
 // delete button (with warning message. )
 
 function Card({ card }) {
+    
   const { url } = useRouteMatch();
   console.log("Card Data:", card)
   console.log({url});
@@ -23,16 +22,6 @@ function Card({ card }) {
         await deleteCard(card.id, abortController.signal);
     }
   }
-
-//   const handleDelete = async () => {
-//     const abortController = new AbortController();
-//     await deleteCard(card.id, abortController.signal);
-//     // console.log("Deleting card with ID:", card.id)
-//     // deleteCardById(card.id);
-
-//   }
-
-//   console.log("Card Id:", card.id);
 
   return (
     <div className="card mx-auto">
