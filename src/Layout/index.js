@@ -24,8 +24,12 @@ function Layout() {
   }, []);
 
   const createDeck = (newDeck) => {
-    setDecks([...decks, newDeck])
-  }
+    const maxDeckId = Math.max(...decks.map((deck) => deck.id));
+    const newDeckId = maxDeckId + 1;
+    const deckWithId = { ...newDeck, id: newDeckId };
+    console.log(deckWithId);
+    setDecks([...decks, deckWithId]);
+  };
 
   const deleteDeckById = (deckId) => {
     const result = window.confirm(
@@ -39,7 +43,6 @@ function Layout() {
     }
   };
 
-
   return (
     <>
       <Header />
@@ -50,7 +53,7 @@ function Layout() {
           </Route>
 
           <Route exact path="/decks/new">
-            <CreateDeck createDeck={createDeck} />
+            <CreateDeck createDeck={createDeck} decks={decks} />
           </Route>
 
           <Route path="/decks/:deckId/study">
@@ -58,9 +61,7 @@ function Layout() {
           </Route>
 
           <Route exact path="/decks/:deckId">
-            <DeckScreen
-              deleteDeckById={deleteDeckById}
-            />
+            <DeckScreen deleteDeckById={deleteDeckById} />
           </Route>
           {/* <Route path="/decks/:deckId/cards/new">
             <AddCard />

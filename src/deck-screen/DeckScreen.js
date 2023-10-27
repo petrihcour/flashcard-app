@@ -23,6 +23,7 @@ function DeckScreen({ deleteDeckById }) {
   const { url } = useRouteMatch();
   const { deckId } = useParams();
   console.log({url})
+  console.log({ deckId });
 
   useEffect(() => {
     async function loadDeckData() {
