@@ -6,7 +6,7 @@ import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
 import StudyCard from "../study/StudyCard";
 import DeckScreen from "../deck-screen/DeckScreen";
-import EditDeck from "../deck-screen/EditDeck";
+// import EditDeck from "../deck-screen/EditDeck";
 // import NotFound from "./NotFound";
 
 function Layout() {
@@ -22,6 +22,10 @@ function Layout() {
 
     deckData();
   }, []);
+
+  const createDeck = (newDeck) => {
+    setDecks([...decks, newDeck])
+  }
 
   const deleteDeckById = (deckId) => {
     const result = window.confirm(
@@ -46,7 +50,7 @@ function Layout() {
           </Route>
 
           <Route exact path="/decks/new">
-            <CreateDeck />
+            <CreateDeck createDeck={createDeck} />
           </Route>
 
           <Route path="/decks/:deckId/study">
