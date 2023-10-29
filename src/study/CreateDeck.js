@@ -40,8 +40,6 @@ function CreateDeck({ createDeck, decks }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-   
     createDeck(newDeck);
     console.log("Submitted", newDeck);
     setNewDeck(initialFormState);
@@ -90,6 +88,8 @@ function CreateDeck({ createDeck, decks }) {
         >
           Submit
         </button>
+        <p>{newDeck.name}</p>
+        <p>{newDeck.description}</p>
       </form>
     </div>
   );

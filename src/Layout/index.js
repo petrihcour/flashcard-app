@@ -4,6 +4,7 @@ import { listDecks } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
+import EditDeck from "../deck-screen/EditDeck";
 import StudyCard from "../study/StudyCard";
 import DeckScreen from "../deck-screen/DeckScreen";
 // import EditDeck from "../deck-screen/EditDeck";
@@ -63,6 +64,9 @@ function Layout() {
           <Route exact path="/decks/:deckId">
             <DeckScreen deleteDeckById={deleteDeckById} />
           </Route>
+          <Route path="/decks/:deckId/edit">
+            <EditDeck decks={decks} />
+        </Route>
           {/* <Route path="/decks/:deckId/cards/new">
             <AddCard />
           </Route> */}

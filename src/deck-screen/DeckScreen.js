@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory, Link, useRouteMatch, Switch, Route } from "react-router-dom";
+import { useParams, useHistory, Link, useRouteMatch } from "react-router-dom";
 import { readDeck } from "../utils/api";
 import CardList from "./CardList";
-import EditDeck from "./EditDeck";
 import NavHome from "../home/NavHome";
 
 // NEED TO MOVE READDECK API INTO THIS COMPONENT TO ACCESS THE INDIVUDUAL Deck
@@ -78,11 +77,11 @@ function DeckScreen({ deleteDeckById }) {
         deck={deck}
       />
 
-      <Switch>
+      {/* <Switch>
         <Route path={`${url}/edit`}>
-            <EditDeck deck={deck} deckId={deckId} />
+            <EditDeck decks={decks} />
         </Route>
-      </Switch>
+      </Switch> */}
     </div>
   );
 }

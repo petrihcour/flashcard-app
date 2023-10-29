@@ -20,17 +20,20 @@ function StudyCard({ decks }) {
   const [cardIndex, setCardIndex] = useState(0);
   const [showFront, setShowFront] = useState(true);
 
+  console.log("Decks:", decks);
   const history = useHistory();
   const { url } = useRouteMatch();
 
   const { deckId } = useParams();
+
   const deck = decks.find((deck) => deck.id === Number(deckId));
+  
   if (!deck) {
     return <NotFound />;
   }
   console.log("Deck: ", deck);
   const card = deck.cards[cardIndex];
-  console.log(card);
+  console.log("Card:", card);
 
   const totalCards = deck.cards.length;
 
