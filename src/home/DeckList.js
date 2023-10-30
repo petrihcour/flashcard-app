@@ -15,7 +15,7 @@ function DeckList({ decks, deleteDeckById }) {
   const { url } = useRouteMatch();
   console.log({ url });
 
-  const rows = decks.map((deck, index) => (
+  const rows = decks.map((deck) => (
     <Deck
       key={deck.id}
       deck={deck}

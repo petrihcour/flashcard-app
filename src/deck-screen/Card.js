@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
-// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED 
+// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED *****
 
 // each individual card
 // shows a question and answer to the question
