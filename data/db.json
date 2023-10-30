@@ -141,6 +141,12 @@
       "back": "add card",
       "deckId": 1,
       "id": 30
+    },
+    {
+      "front": "hjhjkhjkh jkhjh",
+      "back": "hjhjh jkhjkh jk hjkh jkhjkh jkhjk",
+      "deckId": 1,
+      "id": 31
     }
   ]
 }

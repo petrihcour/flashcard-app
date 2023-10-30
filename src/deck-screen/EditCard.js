@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { readCard, updateCard } from "../utils/api";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";

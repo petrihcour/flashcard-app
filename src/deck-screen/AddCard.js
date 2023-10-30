@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { createCard } from "../utils/api";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
@@ -27,11 +27,6 @@ function AddCard({ decks }) {
   console.log(deckId);
 
   const deck = decks.find((deck) => deck.id === Number(deckId));
-  
-
-  useEffect(() => {
-    console.log("Submitted:", newCard)
-  }, [newCard]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
