@@ -12,8 +12,13 @@
     },
     {
       "name": "Add cards to this deck",
-      "description": "This is a new deck that I will add cards to.",
+      "description": "This is a new deck that I will add cards to. editing",
       "id": 3
+    },
+    {
+      "name": "ADD CARD ",
+      "description": "ADD DESCRIPTION",
+      "id": 4
     }
   ],
   "cards": [
@@ -102,40 +107,40 @@
       "id": 18
     },
     {
-      "front": "tes test tetsttsttt",
-      "back": "tetsttststst",
-      "deckId": 3,
-      "id": 19
-    },
-    {
       "front": "A new card!",
       "back": "Back of card!!!! ",
       "deckId": 3,
       "id": 20
     },
     {
-      "front": "test",
-      "back": "test",
-      "deckId": 3,
-      "id": 21
+      "front": "card add",
+      "back": "card add",
+      "deckId": 4,
+      "id": 25
     },
     {
-      "front": "testing ",
-      "back": "testing",
+      "front": "adding new card front",
+      "back": "adding new card back ",
       "deckId": 3,
-      "id": 22
+      "id": 26
     },
     {
-      "front": "testing",
-      "back": "testing",
-      "deckId": 3,
-      "id": 23
+      "front": "New card front",
+      "back": "New card back",
+      "deckId": 1,
+      "id": 27
     },
     {
-      "front": "DSDS",
-      "back": "DSDS",
+      "front": "hi this is a card the front",
+      "back": "this the back ",
       "deckId": 3,
-      "id": 24
+      "id": 28
+    },
+    {
+      "front": "i am editing this one ",
+      "back": "editinging this one ",
+      "deckId": 3,
+      "id": 29
     }
   ]
 }

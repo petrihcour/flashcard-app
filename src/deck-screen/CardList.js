@@ -1,10 +1,12 @@
-import React from "react-router-dom";
+import React from "react";
 import Card from "./Card";
 
 // title is "Cards"
 // map through the cards
 
-function CardList({ cards, deck }) {
+function CardList({ deck, cards }) {
+
+
   if (!cards) {
     return <p>No cards available.</p>;
   }

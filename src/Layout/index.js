@@ -8,6 +8,7 @@ import EditDeck from "../deck-screen/EditDeck";
 import AddCard from "../deck-screen/AddCard";
 import StudyCard from "../study/StudyCard";
 import DeckScreen from "../deck-screen/DeckScreen";
+import EditCard from "../deck-screen/EditCard";
 // import EditDeck from "../deck-screen/EditDeck";
 // import NotFound from "./NotFound";
 
@@ -33,17 +34,22 @@ function Layout() {
   }
 
   const deleteDeckById = async (deckId) => {
-    const abortController = new AbortController();
+    // const abortController = new AbortController();
     const result = window.confirm(
       `Do you want to delete this deck? \n \nYou will not be able to recover it.`
     );
     if (result) {
-      await deleteDeck(deckId, abortController.signal);
+      console.log("Deleting deck with ID:", deckId);
+      try {
+        // await deleteDeck(deckId, abortController.signal);
       // Update the state to remove the deleted deck
       setDecks((currentDeck) =>
         currentDeck.filter((deck) => deck.id !== deckId)
       );
       history.push("/");
+      } catch (error) {
+        console.error('Error deleting deck:', error);
+      }
     }
 
   };
@@ -61,24 +67,22 @@ function Layout() {
             <CreateDeck decks={decks} updateDecks={updateDecks} />
           </Route>
 
-          <Route path="/decks/:deckId/study">
+          <Route exact path="/decks/:deckId/study">
             <StudyCard decks={decks} />
           </Route>
 
           <Route exact path="/decks/:deckId">
             <DeckScreen deleteDeckById={deleteDeckById} />
           </Route>
-          <Route path="/decks/:deckId/edit">
+          <Route exact path="/decks/:deckId/edit">
             <EditDeck decks={decks} />
         </Route>
-          <Route path="/decks/:deckId/cards/new">
+          <Route exact path="/decks/:deckId/cards/new">
             <AddCard decks={decks} />
           </Route>
-          {/* <Route path="/decks/:deckId/cards/:cardId/edit">
-            <EditCard />
+          <Route path="/decks/:deckId/cards/:cardId/edit">
+            <EditCard decks={decks} />
           </Route>
-          <Route component={NotFound} />
-           */}
         </Switch>
       </div>
     </>

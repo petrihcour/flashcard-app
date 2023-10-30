@@ -3,8 +3,6 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { readDeck, updateDeck } from "../utils/api";
 import NavHome from "../home/NavHome";
 
-// NOT ROUTING PROPERLY. WHAT DID I DOOO
-
 // path is `/decks/:deckId/edit`
 // displays same form as CreateDeck.js, except it's prefilled with information for existing deck using `readDeck()` function from `src/utils/api/index.js`
 // cancel button (goes to Deck screen)

@@ -70,7 +70,7 @@ function AddCard({ decks }) {
             name="front"
             placeholder="Front side of card"
             onChange={handleChange}
-            // value={newDeck.description}
+            value={newCard.front}
             rows="3"
           ></textarea>
         </div>
@@ -84,7 +84,7 @@ function AddCard({ decks }) {
             name="back"
             placeholder="Back side of card"
             onChange={handleChange}
-            // value={newDeck.description}
+            value={newCard.back}
             rows="3"
           ></textarea>
         </div>

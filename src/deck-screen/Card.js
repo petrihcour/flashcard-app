@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
-// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED ***** 
-// *** ERROR MESSAGE 500 ERROR COMING UP WHEN DELETING CARD 
+// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED *****
+// *** ERROR MESSAGE 500 ERROR COMING UP WHEN DELETING CARD
 
 // each individual card
 // shows a question and answer to the question
@@ -11,18 +11,22 @@ import { deleteCard } from "../utils/api";
 // delete button (with warning message. )
 
 function Card({ card }) {
-    
   const { url } = useRouteMatch();
-  console.log("Card Data:", card)
-  console.log({url});
+  console.log({ url });
 
   const handleDelete = async () => {
     const abortController = new AbortController();
-    const result = window.confirm(`Do you want to delete this card? \n \nYou will not be able to recover it.`);
-    if (result) { 
+    const result = window.confirm(
+      `Do you want to delete this card? \n \nYou will not be able to recover it.`
+    );
+    if (result) {
+      try {
         await deleteCard(card.id, abortController.signal);
+      } catch (error) {
+        console.error("Error deleting card:", error);
+      }
     }
-  }
+  };
 
   return (
     <div className="card mx-auto">
@@ -34,8 +38,10 @@ function Card({ card }) {
               <p className="w-50 text-right">{card.back}</p>
             </div>
             <div className="d-flex justify-content-end">
-                
-              <Link to={`${url}/cards/${card.id}/edit`} className="btn btn-secondary mr-2">
+              <Link
+                to={`${url}/cards/${card.id}/edit`}
+                className="btn btn-secondary mr-2"
+              >
                 <i className="bi bi-pen"></i> Edit
               </Link>
 
