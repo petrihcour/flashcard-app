@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useHistory, useRouteMatch, Link, useParams } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import NavHome from "../home/NavHome";
+import { createDeck } from "../utils/api";
 
 // NEED TO WORK ON FUNCTIONALITY:
 // SUBMIT HANDLER
@@ -18,7 +19,7 @@ import NavHome from "../home/NavHome";
 // Cancel button takes user back to Home screen
 // Submit button takes user to Deck screen
 
-function CreateDeck({ createDeck, decks }) {
+function CreateDeck({ updateDecks }) {
   const initialFormState = {
     name: "",
     description: "",
@@ -28,22 +29,21 @@ function CreateDeck({ createDeck, decks }) {
 
   const history = useHistory();
 
-  const { url } = useRouteMatch();
-  console.log("URL:", { url });
-
-  const { deckId } = useParams();
-
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewDeck({...newDeck, [name]: value})
+    setNewDeck({
+        ...newDeck, 
+        [name]: value
+    })
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    createDeck(newDeck);
-    console.log("Submitted", newDeck);
+    const createdDeck = await createDeck(newDeck);
+    console.log("New deck created:", createdDeck);
     setNewDeck(initialFormState);
-    history.push(`/decks/${deckId}`)
+    updateDecks(createdDeck)
+    history.push(`/decks/${createdDeck.id}`);
   };
 
   return (
@@ -88,8 +88,6 @@ function CreateDeck({ createDeck, decks }) {
         >
           Submit
         </button>
-        <p>{newDeck.name}</p>
-        <p>{newDeck.description}</p>
       </form>
     </div>
   );

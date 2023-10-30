@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
-import { listDecks } from "../utils/api";
+import { Switch, Route, useHistory } from "react-router-dom";
+import { listDecks, deleteDeck } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
 import CreateDeck from "../study/CreateDeck";
@@ -12,6 +12,8 @@ import DeckScreen from "../deck-screen/DeckScreen";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
+  
+  const history = useHistory();
 
   // access list of Decks
   useEffect(() => {
@@ -24,24 +26,25 @@ function Layout() {
     deckData();
   }, []);
 
-  const createDeck = (newDeck) => {
-    const maxDeckId = Math.max(...decks.map((deck) => deck.id));
-    const newDeckId = maxDeckId + 1;
-    const deckWithId = { ...newDeck, id: newDeckId };
-    console.log(deckWithId);
-    setDecks([...decks, deckWithId]);
-  };
+  // CreateDeck component. auto render home screen without having to do a manual refresh
+  const updateDecks = (newDeck) => {
+    setDecks([...decks, newDeck]);  
+  }
 
-  const deleteDeckById = (deckId) => {
+  const deleteDeckById = async (deckId) => {
+    const abortController = new AbortController();
     const result = window.confirm(
       `Do you want to delete this deck? \n \nYou will not be able to recover it.`
     );
     if (result) {
+      await deleteDeck(deckId, abortController.signal);
       // Update the state to remove the deleted deck
       setDecks((currentDeck) =>
         currentDeck.filter((deck) => deck.id !== deckId)
       );
+      history.push("/");
     }
+
   };
 
   return (
@@ -54,7 +57,7 @@ function Layout() {
           </Route>
 
           <Route exact path="/decks/new">
-            <CreateDeck createDeck={createDeck} decks={decks} />
+            <CreateDeck decks={decks} updateDecks={updateDecks} />
           </Route>
 
           <Route path="/decks/:deckId/study">

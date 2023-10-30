@@ -19,7 +19,7 @@ function DeckList({ decks, deleteDeckById }) {
     <Deck
       key={deck.id}
       deck={deck}
-      cards={deck.cards}
+      cards={deck.cards || []}
       deleteDeckById={deleteDeckById}
     />
   ));
