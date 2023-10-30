@@ -30,7 +30,7 @@
     },
     {
       "id": 2,
-      "front": "How do you modify the state of a different React component?",
+      "front": "How do you modify the state of a different React component? ",
       "back": "Not at all! State is visible to the component only.",
       "deckId": 1
     },
@@ -119,12 +119,6 @@
       "id": 25
     },
     {
-      "front": "adding new card front",
-      "back": "adding new card back ",
-      "deckId": 3,
-      "id": 26
-    },
-    {
       "front": "New card front",
       "back": "New card back",
       "deckId": 1,
@@ -141,6 +135,12 @@
       "back": "editinging this one ",
       "deckId": 3,
       "id": 29
+    },
+    {
+      "front": "add card",
+      "back": "add card",
+      "deckId": 1,
+      "id": 30
     }
   ]
 }

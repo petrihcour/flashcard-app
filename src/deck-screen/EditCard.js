@@ -3,6 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { readCard, updateCard } from "../utils/api";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
+import CardForm from "./CardForm";
 
 // path is `/decks/:deckId/cards/:cardId/edit`
 // use readDeck function (contains card to be edited) and readCard function (load the card to edit)
@@ -56,42 +57,12 @@ function EditCard({ decks }) {
   return (
     <div>
       <NavHome deck={deck.name} heading={`Edit Card ${cardId}`} />
-      <form name="create" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="front" className="form-label">
-            Front
-          </label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            placeholder="Front side of card"
-            onChange={handleChange}
-            value={card.front}
-            rows="3"
-          ></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="back" className="form-label">
-            Back
-          </label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            placeholder="Back side of card"
-            onChange={handleChange}
-            value={card.back}
-            rows="3"
-          ></textarea>
-        </div>
-        <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
-          Done
-        </Link>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
+      <CardForm
+      cardData={card}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      deck={deck}
+      />
     </div>
   );
 }

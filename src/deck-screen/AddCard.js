@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { createCard } from "../utils/api";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
+import CardForm from "./CardForm";
 
 //// FORM NOT CLEARING WHEN ADDING NEW CARD AND HITTING DONE 
 
@@ -59,42 +60,12 @@ function AddCard({ decks }) {
     <div>
       <NavHome deck={deck.name} heading="Add Card" />
       <h3>{deck.name}: Add Card</h3>
-      <form name="create" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="front" className="form-label">
-            Front
-          </label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            placeholder="Front side of card"
-            onChange={handleChange}
-            value={newCard.front}
-            rows="3"
-          ></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="back" className="form-label">
-            Back
-          </label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            placeholder="Back side of card"
-            onChange={handleChange}
-            value={newCard.back}
-            rows="3"
-          ></textarea>
-        </div>
-        <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
-          Done
-        </Link>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
+      <CardForm
+      cardData={newCard}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      deck={deck}
+      />
     </div>
   );
 }

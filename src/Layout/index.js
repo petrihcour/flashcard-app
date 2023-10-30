@@ -55,7 +55,7 @@ function Layout() {
   };
 
   return (
-    <>
+    <main>
       <Header />
       <div className="container">
         <Switch>
@@ -85,7 +85,7 @@ function Layout() {
           </Route>
         </Switch>
       </div>
-    </>
+    </main>
   );
 }
 
