@@ -11,7 +11,7 @@
       "id": 2
     },
     {
-      "name": "Add cards to this deck.",
+      "name": "Add cards to this deck",
       "description": "This is a new deck that I will add cards to.",
       "id": 3
     }
@@ -46,6 +46,96 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
+    },
+    {
+      "deckId": null,
+      "id": 6
+    },
+    {
+      "deckId": null,
+      "id": 7
+    },
+    {
+      "deckId": null,
+      "id": 8
+    },
+    {
+      "deckId": null,
+      "id": 9
+    },
+    {
+      "deckId": null,
+      "id": 10
+    },
+    {
+      "deckId": null,
+      "id": 11
+    },
+    {
+      "deckId": null,
+      "id": 12
+    },
+    {
+      "deckId": null,
+      "id": 13
+    },
+    {
+      "deckId": null,
+      "id": 14
+    },
+    {
+      "deckId": null,
+      "id": 15
+    },
+    {
+      "deckId": null,
+      "id": 16
+    },
+    {
+      "deckId": null,
+      "id": 17
+    },
+    {
+      "front": "jhjkhjhhj",
+      "back": "hjhjkhkhjkh ",
+      "deckId": 3,
+      "id": 18
+    },
+    {
+      "front": "tes test tetsttsttt",
+      "back": "tetsttststst",
+      "deckId": 3,
+      "id": 19
+    },
+    {
+      "front": "A new card!",
+      "back": "Back of card!!!! ",
+      "deckId": 3,
+      "id": 20
+    },
+    {
+      "front": "test",
+      "back": "test",
+      "deckId": 3,
+      "id": 21
+    },
+    {
+      "front": "testing ",
+      "back": "testing",
+      "deckId": 3,
+      "id": 22
+    },
+    {
+      "front": "testing",
+      "back": "testing",
+      "deckId": 3,
+      "id": 23
+    },
+    {
+      "front": "DSDS",
+      "back": "DSDS",
+      "deckId": 3,
+      "id": 24
     }
   ]
 }

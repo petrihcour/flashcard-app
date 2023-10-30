@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
-// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED *****
+// NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED ***** 
+// *** ERROR MESSAGE 500 ERROR COMING UP WHEN DELETING CARD 
 
 // each individual card
 // shows a question and answer to the question

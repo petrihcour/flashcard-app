@@ -72,7 +72,7 @@ function Layout() {
             <EditDeck decks={decks} />
         </Route>
           <Route path="/decks/:deckId/cards/new">
-            <AddCard />
+            <AddCard decks={decks} />
           </Route>
           {/* <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />

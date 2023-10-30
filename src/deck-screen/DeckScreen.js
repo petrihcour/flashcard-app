@@ -22,7 +22,6 @@ function DeckScreen({ deleteDeckById }) {
   const { url } = useRouteMatch();
   const { deckId } = useParams();
   console.log({url})
-  console.log({ deckId });
 
   useEffect(() => {
     async function loadDeckData() {
@@ -76,12 +75,6 @@ function DeckScreen({ deleteDeckById }) {
         cards={deck.cards}
         deck={deck}
       />
-
-      {/* <Switch>
-        <Route path={`${url}/edit`}>
-            <EditDeck decks={decks} />
-        </Route>
-      </Switch> */}
     </div>
   );
 }
