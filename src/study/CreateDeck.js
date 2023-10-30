@@ -32,9 +32,9 @@ function CreateDeck({ updateDecks }) {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewDeck({
-        ...newDeck, 
-        [name]: value
-    })
+      ...newDeck,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (event) => {
@@ -42,7 +42,7 @@ function CreateDeck({ updateDecks }) {
     const createdDeck = await createDeck(newDeck);
     console.log("New deck created:", createdDeck);
     setNewDeck(initialFormState);
-    updateDecks(createdDeck)
+    updateDecks(createdDeck);
     history.push(`/decks/${createdDeck.id}`);
   };
 
@@ -82,10 +82,7 @@ function CreateDeck({ updateDecks }) {
         <Link to="/" className="btn btn-secondary mr-2">
           Cancel
         </Link>
-        <button
-          type="submit"
-          className="btn btn-primary"
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

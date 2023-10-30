@@ -21,23 +21,21 @@ function DeckScreen({ deleteDeckById }) {
   const history = useHistory();
   const { url } = useRouteMatch();
   const { deckId } = useParams();
-  console.log({url})
+  console.log({ url });
 
   useEffect(() => {
     async function loadDeckData() {
-        const abortController = new AbortController();
-        const deckAPI = await readDeck(deckId, abortController.signal);
-        setDeck(deckAPI);
+      const abortController = new AbortController();
+      const deckAPI = await readDeck(deckId, abortController.signal);
+      setDeck(deckAPI);
     }
     loadDeckData();
-  }, [deckId])
-
+  }, [deckId]);
 
   const handleDelete = () => {
     deleteDeckById(deck.id);
     history.push(`/decks/${deckId}`);
   };
-
 
   console.log("current deck", deck);
 
@@ -71,10 +69,7 @@ function DeckScreen({ deleteDeckById }) {
         </div>
       </div>
 
-      <CardList
-        cards={deck.cards}
-        deck={deck}
-      />
+      <CardList cards={deck.cards} deck={deck} />
     </div>
   );
 }

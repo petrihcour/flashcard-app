@@ -36,55 +36,55 @@ function EditDeck({ decks }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const abortController = new AbortController();
-    const updated = await updateDeck({
-        ...deck, 
+    const updated = await updateDeck(
+      {
+        ...deck,
         name: deck.name,
         description: deck.description,
-    }, abortController.signal)
+      },
+      abortController.signal
+    );
     setDeck(updated);
-    history.push(`/decks/${deck.id}`)
-  }
+    history.push(`/decks/${deck.id}`);
+  };
 
   return (
     <div>
       <NavHome deck={decks.name} heading="Edit Deck" />
       <h1>Edit Deck</h1>
       <form name="edit" onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          onChange={handleChange}
-          value={deck.name}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="description" className="form-label">
-          Description
-        </label>
-        <textarea
-          className="form-control"
-          id="description"
-          name="description"
-          onChange={handleChange}
-          value={deck.description}
-          rows="3"
-        ></textarea>
-      </div>
-      <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
-        Cancel
-      </Link>
-      <button
-        type="submit"
-        className="btn btn-primary"
-      >
-        Submit
-      </button>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            onChange={handleChange}
+            value={deck.name}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <textarea
+            className="form-control"
+            id="description"
+            name="description"
+            onChange={handleChange}
+            value={deck.description}
+            rows="3"
+          ></textarea>
+        </div>
+        <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
+          Cancel
+        </Link>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );

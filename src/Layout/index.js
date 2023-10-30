@@ -14,7 +14,7 @@ import EditCard from "../deck-screen/EditCard";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-  
+
   const history = useHistory();
 
   // access list of Decks
@@ -30,8 +30,8 @@ function Layout() {
 
   // CreateDeck component. auto render home screen without having to do a manual refresh
   const updateDecks = (newDeck) => {
-    setDecks([...decks, newDeck]);  
-  }
+    setDecks([...decks, newDeck]);
+  };
 
   const deleteDeckById = async (deckId) => {
     // const abortController = new AbortController();
@@ -42,16 +42,15 @@ function Layout() {
       console.log("Deleting deck with ID:", deckId);
       try {
         // await deleteDeck(deckId, abortController.signal);
-      // Update the state to remove the deleted deck
-      setDecks((currentDeck) =>
-        currentDeck.filter((deck) => deck.id !== deckId)
-      );
-      history.push("/");
+        // Update the state to remove the deleted deck
+        setDecks((currentDeck) =>
+          currentDeck.filter((deck) => deck.id !== deckId)
+        );
+        history.push("/");
       } catch (error) {
-        console.error('Error deleting deck:', error);
+        console.error("Error deleting deck:", error);
       }
     }
-
   };
 
   return (
@@ -76,7 +75,7 @@ function Layout() {
           </Route>
           <Route exact path="/decks/:deckId/edit">
             <EditDeck decks={decks} />
-        </Route>
+          </Route>
           <Route exact path="/decks/:deckId/cards/new">
             <AddCard decks={decks} />
           </Route>

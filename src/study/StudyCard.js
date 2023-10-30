@@ -27,7 +27,7 @@ function StudyCard({ decks }) {
   const { deckId } = useParams();
 
   const deck = decks.find((deck) => deck.id === Number(deckId));
-  
+
   if (!deck) {
     return <NotFound />;
   }
@@ -104,8 +104,8 @@ function StudyCard({ decks }) {
         deck.
       </p>
       <Link to={`${url}/cards/new`} className="btn btn-primary">
-          <i className="bi bi-plus"></i> Add Cards
-     </Link>
+        <i className="bi bi-plus"></i> Add Cards
+      </Link>
     </div>
   );
 }

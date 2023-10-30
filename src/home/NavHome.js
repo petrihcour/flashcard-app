@@ -6,32 +6,27 @@ import { Link } from "react-router-dom";
 // nav on top includes title name of each necessary component
 
 function NavHome({ deck, heading }) {
-//   const location = useLocation();
+  //   const location = useLocation();
 
-    return (
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">
+  return (
+    <nav aria-label="breadcrumb">
+      <ol className="breadcrumb">
+        <li className="breadcrumb-item">
+          <Link to="/">
             <i className="bi bi-house-door-fill"></i> Home
-            </Link>
-          </li>
+          </Link>
+        </li>
 
-          {deck && (
-          <li className="breadcrumb-item active">
-            {deck}
-          </li>
-        )}
+        {deck && <li className="breadcrumb-item active">{deck}</li>}
 
         {heading && (
           <li className="breadcrumb-item active" aria-current="page">
             {heading}
           </li>
         )}
-        
-        </ol>
-      </nav>
-    );
+      </ol>
+    </nav>
+  );
 }
 
 export default NavHome;

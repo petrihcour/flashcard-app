@@ -5,17 +5,11 @@ import Card from "./Card";
 // map through the cards
 
 function CardList({ deck, cards }) {
-
-
   if (!cards) {
     return <p>No cards available.</p>;
   }
   const rowOfCards = cards.map((card) => (
-    <Card
-      key={card.id}
-      deck={deck}
-      card={card}
-    />
+    <Card key={card.id} deck={deck} card={card} />
   ));
 
   return (

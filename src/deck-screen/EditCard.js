@@ -37,31 +37,34 @@ function EditCard({ decks }) {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setCard({
-        ...card,
-        [name]: value,
-    })
-  }
+      ...card,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const abortController = new AbortController();
-    const updated = await updateCard({
+    const updated = await updateCard(
+      {
         ...card,
         front: card.front,
         back: card.back,
-    }, abortController.signal);
+      },
+      abortController.signal
+    );
     setCard(updated);
-    history.push(`/decks/${deck.id}`)
-  }
+    history.push(`/decks/${deck.id}`);
+  };
 
   return (
     <div>
       <NavHome deck={deck.name} heading={`Edit Card ${cardId}`} />
       <CardForm
-      cardData={card}
-      handleChange={handleChange}
-      handleSubmit={handleSubmit}
-      deck={deck}
+        cardData={card}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        deck={deck}
       />
     </div>
   );

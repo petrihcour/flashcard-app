@@ -11,7 +11,7 @@ import Deck from "./Deck";
 // map through list of decks
 
 function DeckList({ decks, deleteDeckById }) {
-//   const history = useHistory();
+  //   const history = useHistory();
   const { url } = useRouteMatch();
   console.log({ url });
 
@@ -29,12 +29,11 @@ function DeckList({ decks, deleteDeckById }) {
       <div className="row">
         <div className="mx-auto mb-2">
           <Link to="/decks/new" className="btn btn-secondary mx-auto">
-          <i className="bi bi-plus"></i> Create Deck
+            <i className="bi bi-plus"></i> Create Deck
           </Link>
         </div>
         <div>{rows}</div>
       </div>
-      
     </div>
   );
 }

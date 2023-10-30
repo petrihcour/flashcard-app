@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 
-
 // create a deck
 // each deck shows:
 // the deck name,
@@ -13,19 +12,15 @@ import { useHistory, Link } from "react-router-dom";
 // // // delete handler needed
 
 function Deck({ deck, cards, deleteDeckById }) {
-
-    
   const history = useHistory();
 
   const totalCardsInDeck = cards.length;
-//   console.log("Deck ID:", deck.id);
-//   console.log("Total Cards", totalCardsInDeck);
-
+  //   console.log("Deck ID:", deck.id);
+  //   console.log("Total Cards", totalCardsInDeck);
 
   const handleDelete = () => {
-      deleteDeckById(deck.id);
-      history.push("/")
-    
+    deleteDeckById(deck.id);
+    history.push("/");
   };
 
   return (
@@ -40,14 +35,12 @@ function Deck({ deck, cards, deleteDeckById }) {
         <div className="d-flex justify-content-between">
           <div>
             <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">
-            <i className="bi bi-eye"></i> View
-            </Link>
-            
-            <Link to={`/decks/${deck.id}/study`}
-            className="btn btn-primary">
-            <i className="bi bi-eyeglasses"></i> Study
+              <i className="bi bi-eye"></i> View
             </Link>
 
+            <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">
+              <i className="bi bi-eyeglasses"></i> Study
+            </Link>
           </div>
           <div className="d-flex justify-content-end">
             <button
