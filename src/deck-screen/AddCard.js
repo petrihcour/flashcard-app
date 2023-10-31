@@ -5,8 +5,6 @@ import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
 import CardForm from "./CardForm";
 
-//// FORM NOT CLEARING WHEN ADDING NEW CARD AND HITTING DONE
-
 // path is `/decks/:deckId/cards/new`
 // title is  `Deck title: Add Card`
 // form consists of
@@ -52,7 +50,7 @@ function AddCard({ decks }) {
   }
 
   return (
-    <div>
+    <>
       <NavHome deck={deck.name} heading="Add Card" />
       <h3>{deck.name}: Add Card</h3>
       <CardForm
@@ -61,7 +59,7 @@ function AddCard({ decks }) {
         handleSubmit={handleSubmit}
         deck={deck}
       />
-    </div>
+    </>
   );
 }
 

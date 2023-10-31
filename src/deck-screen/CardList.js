@@ -13,10 +13,12 @@ function CardList({ deck, cards }) {
   ));
 
   return (
-    <div className="mt-4">
-      <h3>Cards</h3>
-      <div>{rowOfCards}</div>
-    </div>
+    <>
+      <div className="mt-4">
+        <h3>Cards</h3>
+        <div>{rowOfCards}</div>
+      </div>
+    </>
   );
 }
 

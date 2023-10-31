@@ -19,6 +19,11 @@
       "name": "ADD CARD ",
       "description": "ADD DESCRIPTION",
       "id": 4
+    },
+    {
+      "name": "njhjhjhjkhjh new deck ",
+      "description": "new dedck kkkkk",
+      "id": 5
     }
   ],
   "cards": [
@@ -147,6 +152,42 @@
       "back": "hjhjh jkhjkh jk hjkh jkhjkh jkhjk",
       "deckId": 1,
       "id": 31
+    },
+    {
+      "front": "hjkhjkhjk",
+      "back": "bhjkhjkh jkh",
+      "deckId": 1,
+      "id": 32
+    },
+    {
+      "front": "csards new cards",
+      "back": "new cards ncerds",
+      "deckId": 5,
+      "id": 33
+    },
+    {
+      "front": "more cards to delete",
+      "back": "more cards to delete",
+      "deckId": 5,
+      "id": 34
+    },
+    {
+      "front": "more more more",
+      "back": "mormeor emore",
+      "deckId": 5,
+      "id": 35
+    },
+    {
+      "front": "deletr",
+      "back": "delelte it",
+      "deckId": 5,
+      "id": 36
+    },
+    {
+      "front": "jjjijjjj",
+      "back": "ghghghgg",
+      "deckId": 5,
+      "id": 37
     }
   ]
 }

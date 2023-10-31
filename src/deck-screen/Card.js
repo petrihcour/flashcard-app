@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
-import { deleteCard } from "../utils/api";
+import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import { deleteCard, listDecks } from "../utils/api";
 
 // NEED TO FIX DELETE CARD BUTTON. HAVE TO REFRESH PAGE WHEN DELETED *****
 // *** ERROR MESSAGE 500 ERROR COMING UP WHEN DELETING CARD
@@ -13,19 +13,23 @@ import { deleteCard } from "../utils/api";
 function Card({ card }) {
   const { url } = useRouteMatch();
   console.log({ url });
+  const history = useHistory();
 
   const handleDelete = async () => {
+    console.log(card.id)
     const abortController = new AbortController();
-    const result = window.confirm(
-      `Do you want to delete this card? \n \nYou will not be able to recover it.`
-    );
-    if (result) {
-      try {
+    // await listDecks(abortController.signal);
+    // const result = window.confirm(
+    //   `Do you want to delete this card? \n \nYou will not be able to recover it.`
+    // );
+    // if (result) {
+    //   try {
         await deleteCard(card.id, abortController.signal);
-      } catch (error) {
-        console.error("Error deleting card:", error);
-      }
-    }
+    //     history.push("/");
+    //   } catch (error) {
+    //     console.error("Error deleting card:", error);
+    //   }
+    // }
   };
 
   return (

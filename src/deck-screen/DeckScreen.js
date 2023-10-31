@@ -4,9 +4,6 @@ import { readDeck } from "../utils/api";
 import CardList from "./CardList";
 import NavHome from "../home/NavHome";
 
-// NEED TO MOVE READDECK API INTO THIS COMPONENT TO ACCESS THE INDIVUDUAL Deck
-// DO DECK AND SET DECK, PASS DOWN TO CARDLIST AND CARD TO DELETE CARD FROM DECK
-// IT'S CURRENTLY IN LAYOUT/INDEX.JS
 
 // path is `/decks/:deckId`
 // deck name at the top and deck description
@@ -40,7 +37,7 @@ function DeckScreen({ deleteDeckById }) {
   console.log("current deck", deck);
 
   return (
-    <div>
+    <>
       <NavHome deck={deck.name} />
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
@@ -70,7 +67,7 @@ function DeckScreen({ deleteDeckById }) {
       </div>
 
       <CardList cards={deck.cards} deck={deck} />
-    </div>
+    </>
   );
 }
 

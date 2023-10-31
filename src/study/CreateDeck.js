@@ -3,13 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import NavHome from "../home/NavHome";
 import { createDeck } from "../utils/api";
 
-// NEED TO WORK ON FUNCTIONALITY:
-// SUBMIT HANDLER
-// ADDS NEW DECK AND SHOWS UP IN DECK SCREEN
-// NEED TO WORK ON ABOVE
-
-// ----------------------------------------
-
 // path to this screen is `/decks/new`
 // title is Create Deck
 // a form that consists of
@@ -47,7 +40,7 @@ function CreateDeck({ updateDecks }) {
   };
 
   return (
-    <div>
+    <>
       <NavHome heading="Create Deck" />
       <h1>Create Deck</h1>
       <form name="create" onSubmit={handleSubmit}>
@@ -86,7 +79,7 @@ function CreateDeck({ updateDecks }) {
           Submit
         </button>
       </form>
-    </div>
+    </>
   );
 }
 
