@@ -22,13 +22,15 @@ function DeckList({ decks, deleteDeckById }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="mx-auto mb-2">
+        <div className="mx-auto">
+        <div className="d-flex justify-content-center align-items-center mb-2">
           <Link to="/decks/new" className="btn btn-secondary mx-auto">
           <i className="bi bi-plus"></i> Create Deck
           </Link>
         </div>
         <div>{rows}</div>
       </div>
+    </div>
     </div>
   );
 }
