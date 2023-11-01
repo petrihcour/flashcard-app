@@ -37,8 +37,7 @@ function DeckScreen({ deleteDeckById }) {
   console.log("current deck", deck);
 
   return (
-    <>
-      <NavHome deck={deck.name} />
+      <NavHome deck={deck.name}>
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div className="deck d-flex justify-content-between">
@@ -67,7 +66,7 @@ function DeckScreen({ deleteDeckById }) {
       </div>
 
       <CardList cards={deck.cards} deck={deck} setDeck={setDeck} />
-    </>
+    </NavHome>
   );
 }
 

@@ -62,8 +62,8 @@ function StudyCard() {
 
   if (totalCards > 2) {
     return (
-      <div>
-        <NavHome deck={deck?.name} heading="Study" />
+     
+        <NavHome deck={deck?.name} heading="Study">
         <h1>Study: {deck?.name}</h1>
 
         <div className="card mx-auto">
@@ -94,7 +94,8 @@ function StudyCard() {
             </div>
           </div>
         </div>
-      </div>
+      
+      </NavHome>
     );
   }
   return (

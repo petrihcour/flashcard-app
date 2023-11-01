@@ -40,8 +40,7 @@ function CreateDeck({ updateDecks }) {
   };
 
   return (
-    <>
-      <NavHome heading="Create Deck" />
+      <NavHome heading="Create Deck">
       <h1>Create Deck</h1>
       <form name="create" onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -79,7 +78,7 @@ function CreateDeck({ updateDecks }) {
           Submit
         </button>
       </form>
-    </>
+    </NavHome>
   );
 }
 

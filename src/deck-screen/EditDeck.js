@@ -49,8 +49,7 @@ function EditDeck() {
   };
 
   return (
-    <div>
-      <NavHome deck={deck.name} heading="Edit Deck" />
+      <NavHome deck={deck.name} heading="Edit Deck">
       <h1>Edit Deck</h1>
       <form name="edit" onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -86,7 +85,7 @@ function EditDeck() {
           Submit
         </button>
       </form>
-    </div>
+    </NavHome>
   );
 }
 

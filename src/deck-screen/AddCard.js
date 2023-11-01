@@ -59,8 +59,7 @@ function AddCard() {
   // }
 
   return (
-    <>
-      <NavHome deck={deck.name} heading="Add Card" />
+      <NavHome deck={deck.name} heading="Add Card">
       <h3>
         <span>{deck.name}</span>: Add Card
       </h3>
@@ -70,7 +69,7 @@ function AddCard() {
         handleSubmit={handleSubmit}
         deck={deck}
       />
-    </>
+    </NavHome>
   );
 }
 

@@ -55,15 +55,14 @@ function EditCard() {
   };
 
   return (
-    <>
-      <NavHome deck={deck.name} heading={`Edit Card ${cardId}`} />
+      <NavHome deck={deck.name} heading={`Edit Card ${cardId}`}>
       <CardForm
         cardData={card}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         deck={deck}
       />
-    </>
+    </NavHome>
   );
 }
 
