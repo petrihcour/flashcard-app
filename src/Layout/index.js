@@ -9,6 +9,7 @@ import AddCard from "../deck-screen/AddCard";
 import StudyCard from "../study/StudyCard";
 import DeckScreen from "../deck-screen/DeckScreen";
 import EditCard from "../deck-screen/EditCard";
+import NotFound from "./NotFound";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
@@ -81,6 +82,9 @@ function Layout() {
           </Route>
           <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
+          </Route>
+          <Route>
+            <NotFound />
           </Route>
         </Switch>
       </div>

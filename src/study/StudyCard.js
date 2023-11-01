@@ -35,9 +35,7 @@ function StudyCard() {
   }, [deckId])
 
   
-  console.log("Deck: ", deck);
   const card = deck?.cards?.[cardIndex];
-  console.log("Card:", card);
 
   const totalCards = deck?.cards?.length;
 
@@ -84,14 +82,15 @@ function StudyCard() {
               >
                 Flip
               </button>
+              {!showFront && (
               <button
                 className="btn btn-primary"
                 type="button"
-                style={{ display: showFront ? "none" : "block" }}
                 onClick={clickHandler}
               >
                 Next
               </button>
+              )}
             </div>
           </div>
         </div>
