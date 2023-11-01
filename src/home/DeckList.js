@@ -1,17 +1,12 @@
 import React from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 import Deck from "./Deck";
-// import CreateDeck from "../study/CreateDeck";
-// import CreateDeck from "../study/CreateDeck";
-// import DeckScreen from "../deck-screen/DeckScreen";
-// import StudyCard from "../study/StudyCard";
 
 // path is '/'
 // top of list of deck is a create deck button that brings user to Create Deck screen
 // map through list of decks
 
 function DeckList({ decks, deleteDeckById }) {
-  //   const history = useHistory();
   const { url } = useRouteMatch();
   console.log({ url });
 

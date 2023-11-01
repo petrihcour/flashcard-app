@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
+import { readDeck } from "../utils/api";
 import NavHome from "../home/NavHome";
-import NotFound from "../Layout/NotFound";
 
 // Study Screen
 // path is `/decks/:deckId/study`
@@ -16,25 +16,30 @@ import NotFound from "../Layout/NotFound";
 // on last card, "Restart prompt"
 // if user does not restart, "click 'Cancel' to return to the Home page
 
-function StudyCard({ decks }) {
+function StudyCard() {
   const [cardIndex, setCardIndex] = useState(0);
   const [showFront, setShowFront] = useState(true);
+  const [deck, setDeck] = useState({});
 
-  console.log("Decks:", decks);
   const history = useHistory();
 
   const { deckId } = useParams();
 
-  const deck = decks.find((deck) => deck.id === Number(deckId));
+  useEffect(() => {
+    async function readDeckData() {
+      const abortController = new AbortController();
+      const deckAPI = await readDeck(deckId, abortController.signal);
+      setDeck(deckAPI);
+    }
+    readDeckData();
+  }, [deckId])
 
-  if (!deck) {
-    return <NotFound />;
-  }
+  
   console.log("Deck: ", deck);
-  const card = deck.cards[cardIndex];
+  const card = deck?.cards?.[cardIndex];
   console.log("Card:", card);
 
-  const totalCards = deck.cards.length;
+  const totalCards = deck?.cards?.length;
 
   const flipCard = () => {
     setShowFront(!showFront);
@@ -60,8 +65,8 @@ function StudyCard({ decks }) {
   if (totalCards > 2) {
     return (
       <div>
-        <NavHome deck={deck.name} heading="Study" />
-        <h1>Study: {deck.name}</h1>
+        <NavHome deck={deck?.name} heading="Study" />
+        <h1>Study: {deck?.name}</h1>
 
         <div className="card mx-auto">
           <div className="card-body">

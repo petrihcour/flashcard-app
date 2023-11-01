@@ -8,7 +8,7 @@ import NavHome from "../home/NavHome";
 // cancel button (goes to Deck screen)
 // Submit button
 
-function EditDeck({ decks }) {
+function EditDeck() {
   const [deck, setDeck] = useState({ name: "", description: "" });
   const { deckId } = useParams();
   console.log(deckId);
@@ -50,7 +50,7 @@ function EditDeck({ decks }) {
 
   return (
     <div>
-      <NavHome deck={decks.name} heading="Edit Deck" />
+      <NavHome deck={deck.name} heading="Edit Deck" />
       <h1>Edit Deck</h1>
       <form name="edit" onSubmit={handleSubmit}>
         <div className="mb-3">

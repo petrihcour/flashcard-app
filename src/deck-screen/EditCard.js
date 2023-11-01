@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { readCard, updateCard } from "../utils/api";
+import { readCard, readDeck, updateCard } from "../utils/api";
 import NavHome from "../home/NavHome";
-import NotFound from "../Layout/NotFound";
 import CardForm from "./CardForm";
 
 // path is `/decks/:deckId/cards/:cardId/edit`
@@ -12,8 +11,9 @@ import CardForm from "./CardForm";
 // displays same form as AddCard screen, except it's prefilled with info for existing card
 // Cancel and Save button goes to Deck Screen
 
-function EditCard({ decks }) {
+function EditCard() {
   const [card, setCard] = useState({ front: "", back: "" });
+  const [deck, setDeck] = useState({});
 
   const { deckId, cardId } = useParams();
   console.log("Deck ID:", deckId);
@@ -24,15 +24,12 @@ function EditCard({ decks }) {
     const abortController = new AbortController();
     async function readCardData() {
       const readCardAPI = await readCard(cardId, abortController.signal);
+      const readDeckAPI = await readDeck(deckId, abortController.signal)
       setCard(readCardAPI);
+      setDeck(readDeckAPI);
     }
     readCardData();
-  }, [cardId]);
-
-  const deck = decks.find((deck) => deck.id === Number(deckId));
-  if (!deck) {
-    return <NotFound />;
-  }
+  }, [cardId, deckId]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

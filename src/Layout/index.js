@@ -72,15 +72,15 @@ function Layout() {
             <EditDeck decks={decks} />
           </Route>
           <Route exact path="/decks/:deckId/cards/new">
-            <AddCard decks={decks} />
+            <AddCard />
           </Route>
 
           {/* card routes */}
           <Route exact path="/decks/:deckId/study">
-            <StudyCard decks={decks} />
+            <StudyCard />
           </Route>
           <Route path="/decks/:deckId/cards/:cardId/edit">
-            <EditCard decks={decks} />
+            <EditCard />
           </Route>
         </Switch>
       </div>
