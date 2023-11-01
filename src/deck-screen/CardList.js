@@ -5,8 +5,13 @@ import Card from "./Card";
 // map through the cards
 
 function CardList({ deck, cards, setDeck }) {
-  if (!cards) {
-    return <p>No cards available.</p>;
+  if (!cards || cards.length === 0) {
+    return (
+      <div className="mt-4">
+      <h3>Cards </h3>
+    <p>There are no cards yet! </p>
+    </div>
+    );
   }
   const rowOfCards = cards.map((card) => (
     <Card key={card.id} deck={deck} card={card} setDeck={setDeck} />

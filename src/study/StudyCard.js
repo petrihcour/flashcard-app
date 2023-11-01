@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Link, useHistory, useRouteMatch } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import NavHome from "../home/NavHome";
 import NotFound from "../Layout/NotFound";
 
@@ -22,7 +22,6 @@ function StudyCard({ decks }) {
 
   console.log("Decks:", decks);
   const history = useHistory();
-  const { url } = useRouteMatch();
 
   const { deckId } = useParams();
 
@@ -103,7 +102,7 @@ function StudyCard({ decks }) {
         You need at least 3 cards to study. There are {totalCards} cards in this
         deck.
       </p>
-      <Link to={`${url}/cards/new`} className="btn btn-primary">
+      <Link to={`/decks/${deck.id}/cards/new`} className="btn btn-primary">
         <i className="bi bi-plus"></i> Add Cards
       </Link>
     </div>

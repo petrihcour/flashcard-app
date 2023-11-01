@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { createCard } from "../utils/api";
 import NavHome from "../home/NavHome";
-import NotFound from "../Layout/NotFound";
 import CardForm from "./CardForm";
 
 // path is `/decks/:deckId/cards/new`
@@ -45,14 +44,14 @@ function AddCard({ decks }) {
     setNewCard(initialFormState);
   };
 
-  if (!deck) {
-    return <NotFound />;
-  }
+  // if (!deck) {
+  //   return <NotFound />;
+  // }
 
   return (
     <>
       <NavHome deck={deck.name} heading="Add Card" />
-      <h3>{deck.name}: Add Card</h3>
+      <h3><span>{deck.name}</span>: Add Card</h3>
       <CardForm
         cardData={newCard}
         handleChange={handleChange}

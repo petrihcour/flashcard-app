@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { listDecks, deleteDeck } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../home/DeckList";
@@ -12,8 +12,6 @@ import EditCard from "../deck-screen/EditCard";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-
-  const history = useHistory();
 
   // access list of Decks
   useEffect(() => {

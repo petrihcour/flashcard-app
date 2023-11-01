@@ -31,7 +31,7 @@ function DeckScreen({ deleteDeckById }) {
 
   const handleDelete = () => {
     deleteDeckById(deck.id);
-    history.push(`/decks/${deckId}`);
+    history.push(`/`);
   };
 
   console.log("current deck", deck);
