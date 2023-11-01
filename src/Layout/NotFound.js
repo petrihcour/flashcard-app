@@ -4,8 +4,9 @@ import NavHome from "../home/NavHome";
 function NotFound() {
   return (
     <div className="NotFound">
-      <NavHome />
+      <NavHome>
       <h1>Not Found</h1>
+      </NavHome>
     </div>
   );
 }
