@@ -19,7 +19,7 @@ import NavHome from "../home/NavHome";
 function StudyCard() {
   const [cardIndex, setCardIndex] = useState(0);
   const [showFront, setShowFront] = useState(true);
-  const [deck, setDeck] = useState({});
+  const [deck, setDeck] = useState({ cards: [] });
 
   const history = useHistory();
 
@@ -35,9 +35,9 @@ function StudyCard() {
   }, [deckId])
 
   
-  const card = deck?.cards?.[cardIndex];
+  const card = deck.cards[cardIndex];
 
-  const totalCards = deck?.cards?.length;
+  const totalCards = deck.cards.length;
 
   const flipCard = () => {
     setShowFront(!showFront);
@@ -63,8 +63,8 @@ function StudyCard() {
   if (totalCards > 2) {
     return (
      
-        <NavHome deck={deck?.name} heading="Study">
-        <h1>Study: {deck?.name}</h1>
+        <NavHome deck={deck.name} heading="Study">
+        <h1>Study: {deck.name}</h1>
 
         <div className="card mx-auto">
           <div className="card-body">
