@@ -23,10 +23,14 @@ function EditCard() {
   useEffect(() => {
     const abortController = new AbortController();
     async function readCardData() {
-      const readCardAPI = await readCard(cardId, abortController.signal);
-      const readDeckAPI = await readDeck(deckId, abortController.signal)
-      setCard(readCardAPI);
-      setDeck(readDeckAPI);
+      try {
+        const readCardAPI = await readCard(cardId, abortController.signal);
+        const readDeckAPI = await readDeck(deckId, abortController.signal);
+        setCard(readCardAPI);
+        setDeck(readDeckAPI);
+      } catch (error) {
+        console.error(error);
+      }
     }
     readCardData();
   }, [cardId, deckId]);
@@ -55,7 +59,7 @@ function EditCard() {
   };
 
   return (
-      <NavHome deck={deck.name} heading={`Edit Card ${cardId}`}>
+    <NavHome deck={deck.name} heading={`Edit Card ${cardId}`}>
       <CardForm
         cardData={card}
         handleChange={handleChange}

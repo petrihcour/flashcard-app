@@ -19,8 +19,12 @@ function EditDeck() {
   useEffect(() => {
     const abortController = new AbortController();
     async function readDeckData() {
-      const readDeckAPI = await readDeck(deckId, abortController.signal);
-      setDeck(readDeckAPI);
+      try {
+        const readDeckAPI = await readDeck(deckId, abortController.signal);
+        setDeck(readDeckAPI);
+      } catch (error) {
+        console.error(error);
+      }
     }
     readDeckData();
   }, [deckId]);
@@ -49,7 +53,7 @@ function EditDeck() {
   };
 
   return (
-      <NavHome deck={deck.name} heading="Edit Deck">
+    <NavHome deck={deck.name} heading="Edit Deck">
       <h1>Edit Deck</h1>
       <form name="edit" onSubmit={handleSubmit}>
         <div className="mb-3">

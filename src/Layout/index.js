@@ -18,8 +18,12 @@ function Layout() {
   useEffect(() => {
     const abortController = new AbortController();
     async function deckData() {
-      const decksAPI = await listDecks(abortController.signal);
-      setDecks(decksAPI);
+      try {
+        const decksAPI = await listDecks(abortController.signal);
+        setDecks(decksAPI);
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     deckData();

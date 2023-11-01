@@ -37,8 +37,12 @@ function AddCard() {
   useEffect(() => {
     const abortController = new AbortController();
     async function readDeckData() {
-      const deck = await readDeck(deckId, abortController.signal);
-      setDeck(deck);
+      try {
+        const deck = await readDeck(deckId, abortController.signal);
+        setDeck(deck);
+      } catch (error) {
+        console.error(error);
+      }
     }
     readDeckData();
   }, [deckId]);
@@ -59,7 +63,7 @@ function AddCard() {
   // }
 
   return (
-      <NavHome deck={deck.name} heading="Add Card">
+    <NavHome deck={deck.name} heading="Add Card">
       <h3>
         <span>{deck.name}</span>: Add Card
       </h3>
