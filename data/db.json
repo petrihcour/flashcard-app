@@ -11,8 +11,8 @@
       "id": 2
     },
     {
-      "name": "jjh jkhjkhjkh",
-      "description": "fg hj ghj",
+      "name": "New Deck",
+      "description": "Deck description",
       "id": 3
     }
   ],
@@ -54,30 +54,6 @@
       "id": 6
     },
     {
-      "front": "adadadad",
-      "back": "ahhahahhahaha",
-      "deckId": 3,
-      "id": 7
-    },
-    {
-      "front": "card 2",
-      "back": "card 2",
-      "deckId": 3,
-      "id": 8
-    },
-    {
-      "front": "card 3",
-      "back": "card 3",
-      "deckId": 3,
-      "id": 9
-    },
-    {
-      "front": "card 4 ",
-      "back": "card 4",
-      "deckId": 3,
-      "id": 10
-    },
-    {
       "front": "More cards in React Router",
       "back": "More cards in React Router ",
       "deckId": 2,
@@ -102,22 +78,10 @@
       "id": 15
     },
     {
-      "front": "testing",
-      "back": "tetting",
-      "deckId": 1,
-      "id": 16
-    },
-    {
       "front": "etttsttt",
       "back": "tststtsts",
       "deckId": 1,
       "id": 17
-    },
-    {
-      "front": "ccccc",
-      "back": "ccccc",
-      "deckId": 1,
-      "id": 18
     },
     {
       "front": "jhjhj ",
@@ -136,6 +100,18 @@
       "back": "fgfgf",
       "deckId": 1,
       "id": 21
+    },
+    {
+      "front": "Front of card",
+      "back": "back of card",
+      "deckId": 3,
+      "id": 22
+    },
+    {
+      "front": "another card",
+      "back": "back of this card",
+      "deckId": 3,
+      "id": 23
     }
   ]
 }
