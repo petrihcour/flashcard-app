@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 // nav on top includes title name of each necessary component
 
 function NavHome({ deck, heading, children }) {
-  //   const location = useLocation();
-
   return (
     <div className="container">
       <div className="row">
