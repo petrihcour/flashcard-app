@@ -1,7 +1,8 @@
 # Flashcard-o-matic
 A local school has decided to put together a flashcard application, Flashcard-o-matic, to help their students study online. Teachers will use this application to create decks of flashcards for the subjects they teach, and students will study the decks. The school needs you to build the application that the students and teachers will use.
 
-
+## Live Demo 
+Click [here](https://flashcard-o-matic-9frr.onrender.com/) to access the Live Demo!
 
 ## API
 There are two datasets that are a part of this project: decks and cards.
