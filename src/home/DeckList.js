@@ -1,14 +1,31 @@
-import React from "react";
-import { useRouteMatch, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Deck from "./Deck";
+import { listDecks } from "../utils/api"; 
+import "../App.css";
 
-// path is '/'
-// top of list of deck is a create deck button that brings user to Create Deck screen
-// map through list of decks
+function DeckList({ deleteDeckById }) {
+  const [decks, setDecks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-function DeckList({ decks, deleteDeckById }) {
-  const { url } = useRouteMatch();
-  console.log({ url });
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    setLoading(true);
+
+    listDecks(abortController.signal)
+      .then((data) => {
+        setDecks(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching decks: ", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    return () => abortController.abort();
+  }, []);
 
   const rows = decks.map((deck) => (
     <Deck
@@ -23,14 +40,20 @@ function DeckList({ decks, deleteDeckById }) {
     <div className="container">
       <div className="row">
         <div className="mx-auto">
-        <div className="d-flex justify-content-center align-items-center mb-2">
-          <Link to="/decks/new" className="btn btn-secondary mx-auto">
-          <i className="bi bi-plus"></i> Create Deck
-          </Link>
+          <div className="d-flex justify-content-center align-items-center mb-2">
+            <Link to="/decks/new" className="btn btn-secondary mx-auto">
+              <i className="bi bi-plus"></i> Create Deck
+            </Link>
+          </div>
+          {loading ? (
+            <div className="loading-container">
+              <div className="loading-spinner"></div>
+            </div>
+          ) : (
+            <div>{rows}</div>
+          )}
         </div>
-        <div>{rows}</div>
       </div>
-    </div>
     </div>
   );
 }
