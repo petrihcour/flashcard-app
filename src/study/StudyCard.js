@@ -99,7 +99,7 @@ function StudyCard() {
     );
   }
   return (
-    <div>
+    <div className="text-center">
       <NavHome deck={deck.name} heading="Study" />
       <h1>Study: {deck.name}</h1>
       <h2>Not enough cards.</h2>
