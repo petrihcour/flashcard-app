@@ -1,8 +1,62 @@
 # Flashcard-o-matic
+
 A local school has decided to put together a flashcard application, Flashcard-o-matic, to help their students study online. Teachers will use this application to create decks of flashcards for the subjects they teach, and students will study the decks. The school needs you to build the application that the students and teachers will use.
 
-## Live Demo 
+## Table of Contents
+
+1. [Live Demo](#live-demo)
+2. [Project Context](#project-context)
+3. [Intended Use](#intended-use)
+4. [Features and Aspects](#features-and-aspects)
+5. [Technologies and Tools](#technologies-and-tools)
+6. [API Details](#api-details)
+    - [Decks](#decks)
+    - [Cards](#cards)
+    - [Utility Functions](#utility-functions)
+7. [Screens](#screens)
+    - [Home](#home)
+    - [Study](#study)
+    - [Create Deck](#create-deck)
+    - [Deck](#deck)
+    - [Edit Deck](#edit-deck)
+    - [Add Card](#add-card)
+    - [Edit Card](#edit-card)
+8. [Discoveries](#discoveries)
+9. [Future Goals](#future-goals)
+
+## Live Demo
 Click [here](https://flashcard-o-matic-9frr.onrender.com/) to access the Live Demo!
+
+## Project Context
+Flashcard-o-matic is a web application designed to facilitate online study for students by using flashcards. Teachers can create decks of flashcards for various subjects, which students can then use to study effectively. The primary purpose of this project is to provide a practical tool for education while also showcasing web development skills using React.
+
+## Intended Use
+Flashcard-o-matic is intended for educational purposes, allowing students to study using flashcards created by their teachers. It also serves as a demonstration project for web developers to understand and implement a full-stack application with React, including handling state, props, and routing.
+
+## Features and Aspects
+- **Purpose**: Educational tool for creating and studying flashcards.
+- **User Roles**: Teachers create and manage flashcards; students use them to study.
+- **Tech Stack**: React for the front end, integrated with utility functions for CRUD operations.
+- **Navigation**: Intuitive navigation through different screens using React Router.
+- **Responsive Design**: Ensures usability across various devices.
+
+## Technologies and Tools
+- **React**: Used for building the user interface.
+- **React Router**: For client-side routing to different screens.
+- **CSS**: For styling the application.
+- **Utility Functions**: For handling API requests and state management.
+
+## API Details
+### Decks
+Each Deck is an object with the following structure:
+```json
+{
+  "id": 1,
+  "name": "Rendering in React",
+  "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation."
+}
+```
+
 
 ## API
 There are two datasets that are a part of this project: decks and cards.
@@ -206,3 +260,11 @@ The Edit Card screen has the following features:
 - There is a breadcrumb navigation bar with a link to home /, followed by the name of the deck of which the edited card is a member, and finally the text `Edit Card :cardId` (e.g., `Home/Deck React Router/Edit Card 4`).
 - It displays the same form as the Add Card screen, except it is prefilled with information for the existing card. It can be edited and updated.
 - If the user clicks on either **Save** or **Cancel**, the user is taken to the Deck screen.
+
+## Discoveries
+During the development of Flashcard-o-matic, I learned about effective state management in React, the importance of structured API interactions, and the benefits of React Router for seamless navigation.
+
+## Future Goals
+
+- Implement user authentication for personalized experiences.
+- Enhance the user interface with better animations and design elements.
