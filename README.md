@@ -43,7 +43,8 @@ Flashcard-o-matic is intended for educational purposes, allowing students to stu
 ## Technologies and Tools
 - **React**: Used for building the user interface.
 - **React Router**: For client-side routing to different screens.
-- **CSS**: For styling the application.
+- **Bootstrap**: For styling the application.
+- **CSS**: Also for styling the application.
 - **Utility Functions**: For handling API requests and state management.
 
 ## API Details
